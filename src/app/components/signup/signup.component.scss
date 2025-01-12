@@ -52,14 +52,14 @@ h2 {
 }
 
 mat-form-field {
-    width: 100%; /* Ensures form fields take full width */
+    width: 100%; 
 }
 
 .actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px; /* Spacing between form and actions */
+    margin-top: 20px; 
 }
 
 .actions a {
@@ -90,11 +90,10 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-left: 1px solid #f1f1f1; /* Separation line */
 }
 
 .info-section img {
-    max-width: 200px; /* Maintains image size */
+    max-width: 200px; 
     height: auto;
 }
 
@@ -102,5 +101,5 @@ button:hover {
     font-size: 14px;
     color: #666;
     margin: 0 auto;
-    max-width: 180px; /* Keeps the paragraph text contained */
+    max-width: 180px;
 }
