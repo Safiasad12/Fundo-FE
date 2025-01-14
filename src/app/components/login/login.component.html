@@ -1,28 +1,37 @@
-
+<span>{{text}}</span>
 <div class="login-container">
     <div class="login-form">
       <h2 id="title">Fundo</h2>
       <h2>Sign In</h2>
       <p>Use Your Fundo Account</p>
-      <form>
+      <form [formGroup]="loginForm">
        
         <mat-form-field appearance="outline">
           <mat-label for="email">Email</mat-label>
-          <input matInput id="email" type="email" placeholder="Email" required aria-label="Email">
-          <mat-hint>Enter your email address</mat-hint>
+          <input formControlName="email" matInput id="email" type="email" placeholder="Email" required aria-label="Email">
+          <mat-error *ngIf="submitted && loginControls?.['email']?.['errors']?.['required']">Email is
+            required</mat-error>
+        <mat-error *ngIf="submitted && loginControls?.['email']?.['errors']?.['email']">Incorrect Email
+            Format</mat-error>
         </mat-form-field>
   
         
         <mat-form-field appearance="outline">
           <mat-label for="password">Password</mat-label>
-          <input matInput id="password" type="password" placeholder="Password" required aria-label="Password">
-          <mat-hint>Enter your password</mat-hint>
+          <input formControlName="password" matInput id="password" type="password" placeholder="Password" required aria-label="Password">
         </mat-form-field>
+
   
-        <a href="#" class="forgot-password">Forgot Password?</a>
+        <!-- <a href="#" class="forgot-password">Forgot Password?</a> -->
+
+        <a mat-button href="signup.html/" target="_blank">Forgot Password</a>
+
         <div class="links">
-          <a href="signup.html" class="create-account">Create account</a>
-          <button type="submit" class="login-button">Login</button>
+          <!-- <a href="signup.html" class="create-account">Create account</a> -->
+
+          <a mat-button href="signup.html/" target="_blank">Create account</a>
+
+          <button type="submit" class="login-button" (click)="handleLogin()">Login</button>
         </div>
       </form>
     </div>
