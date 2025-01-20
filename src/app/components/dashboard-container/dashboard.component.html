@@ -1,0 +1,71 @@
+
+
+   
+
+
+    <div class="navbar">
+        <button mat-icon-button aria-label="menu button" matTooltip="menu">
+            <mat-icon svgIcon="menu-icon" aria-hidden="false" aria-label="menu button icon"></mat-icon>
+        </button>
+
+        <div class="logo">
+            <img src="../../../assets/keep-logo.png" alt="Logo">
+            Keep
+        </div>
+        <div class="search-bar">
+            <input [(ngModel)]='searchQuery' (input)="handleSearchQuery()" type="text" placeholder="Search">
+        </div>
+        <!-- <div class="actions">
+            <img src="../../../assets/refresh-icon.png" alt="Logo">
+            <span class="icon">&#128276;</span>
+            <span class="icon">&#128711;</span>
+        </div> -->
+
+        <button class="profile" [matMenuTriggerFor]="profile">
+           S
+
+            <mat-menu #profile="matMenu">
+                <button mat-menu-item>safi123</button>
+                <button mat-menu-item>safiasad12@gmail.com</button>
+                <button mat-menu-item (click)="signout()">sign out</button>
+            </mat-menu>
+        </button>
+    </div>
+
+
+    <div class="body">
+       
+
+        <router-outlet>
+            <div class="side-navbar">
+
+                <button mat-icon-button aria-label="note button" matTooltip="note">
+                    <mat-icon svgIcon="note-icon" aria-hidden="false" aria-label="note button icon"></mat-icon>
+                </button>
+
+                <button mat-icon-button aria-label="edit button" matTooltip="edit">
+                    <mat-icon svgIcon="edit-icon" aria-hidden="false" aria-label="edit button icon"></mat-icon>
+                </button>
+
+                <button mat-icon-button aria-label="archive button" matTooltip="archive">
+                    <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="archive button icon"></mat-icon>
+                </button>
+
+                <button mat-icon-button aria-label="trash button" matTooltip="trash">
+                    <mat-icon svgIcon="trash-icon" aria-hidden="false" aria-label="trash button icon"></mat-icon>
+                </button>
+
+               
+            
+
+            </div>
+        </router-outlet>
+
+    </div>
+    
+
+
+
+
+
+

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user-service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -8,30 +10,51 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignupComponent {
   signupForm!: FormGroup
-  text: string = "Dummy Text"
-  inputText: string = ""
-  submitted: boolean = true;
-  
-  constructor(private formBuilder: FormBuilder) { }
+  submitted: boolean = false;
+
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
-        firstname: ['', [Validators.required, ]],
-        lastname: ['', [Validators.required, ]],
-        username: ['', [Validators.required, ]],
-        password: ['', [Validators.required, Validators.minLength(8), ]],
-        confirmPassword: ['', [Validators.required, ]],
+      firstname: ['', [Validators.required,]],
+      lastname: ['', [Validators.required,]],
+      username: ['', [Validators.required,]],
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(8),]],
     });
-}
-
-get signupControls() { return this.signupForm.controls; }
-
-handleSignUp() {
-  
-  if(this.signupForm.status == "INVALID") {
-    this.submitted = true
   }
-  console.log(this.signupForm);
-}
+
+  get signupControls() { return this.signupForm.controls; }
+
+
+  handleSignUp() {
+    this.submitted = true
+
+
+
+    const { firstname, lastname, username, email, password } = this.signupForm.value
+
+    console.log(this.signupForm.value)
+
+
+
+    if (this.signupForm.status == "VALID") {
+      this.userService.signupApiCall({ firstname, lastname, username, email, password }).subscribe({
+        next: (res: any) => {
+          console.log(res);
+
+          this.router.navigate([""])
+
+
+        },
+        error: (err) => {
+
+          console.log(err);
+
+        }
+      });
+
+    }
+  }
 
 }

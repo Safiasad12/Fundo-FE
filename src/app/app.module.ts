@@ -9,6 +9,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 
@@ -16,6 +18,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AddNoteComponent } from './components/add-note/add-note.component';
+import { NoteCardComponent } from './components/note-card/note-card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard-container/dashboard.component';
+import { ArchiveContainerComponent } from './components/archive-container/archive-container.component';
+import { NotesContainerComponent } from './components/notes-container/notes-container.component';
+import { TrashContainerComponent } from './components/trash-container/trash-container.component';
+import { SearchPipe } from './pipe/search.pipe';
+
 
 
 
@@ -26,6 +36,12 @@ import { AddNoteComponent } from './components/add-note/add-note.component';
     LoginComponent,
     SignupComponent,
     AddNoteComponent,
+    NoteCardComponent,
+    DashboardComponent,
+    ArchiveContainerComponent,
+    NotesContainerComponent,
+    TrashContainerComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +54,9 @@ import { AddNoteComponent } from './components/add-note/add-note.component';
     ReactiveFormsModule,
     MatToolbarModule,
     MatIconModule,
+    HttpClientModule,
+    MatMenuModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

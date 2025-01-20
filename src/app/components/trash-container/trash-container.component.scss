@@ -1,0 +1,15 @@
+.note-card-container{
+    display: flex;
+    flex-wrap: wrap;
+    // border: 7px solid rgb(225, 21, 21);
+    width: calc(100% - 90px);
+
+    justify-content: center;
+}
+
+.cnt{
+    display: flex;
+    flex-direction: column;
+    // border: 1px solid pink;
+    align-items: center;
+}

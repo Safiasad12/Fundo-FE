@@ -1,1 +1,79 @@
-<p>note-card works!</p>
+<div class="note-card">
+    <div class="note-card-header">
+        <h3 class="note-title">{{noteDetails?.title | uppercase}}</h3>
+    </div>
+    <div class="note-card-body">
+        <p class="note-content">{{noteDetails?.description}}</p>
+    </div>
+    <div class="notes-btn" *ngIf="container==='notes'">
+        <button mat-icon-button aria-label="reminder button" matTooltip="Reminder">
+            <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="reminder icon"></mat-icon>
+        </button>
+        <!-- <button mat-icon-button aria-label="collabrator button" matTooltip="Collabrator">
+            <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="collabrator icon"></mat-icon>
+        </button> -->
+        <button mat-icon-button aria-label="color button" matTooltip="Background">
+            <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color button icon"></mat-icon>
+        </button>
+        <button mat-icon-button aria-label="image button" matTooltip="Image">
+            <mat-icon svgIcon="image-icon" aria-hidden="false" aria-label="image icon"></mat-icon>
+        </button>
+        <button (click)="handleNoteIconsClick('archive')" mat-icon-button aria-label="archive button"
+            matTooltip="Archive">
+            <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="archive icon"></mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="more button" matTooltip="More">
+            <mat-icon svgIcon="more-icon" aria-hidden="false" aria-label="more icon">
+            </mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="handleNoteIconsClick('trash')">Delete note</button>
+            <button mat-menu-item>Add label</button>
+            <button mat-menu-item>Add drawing</button>
+            <button mat-menu-item>Make a copy</button>
+        </mat-menu>
+    </div>
+
+    <ng-template #trashBtn [ngIf]="container==='trash'">
+        <div class="trash-btn">
+            <button mat-icon-button aria-label="Delete button" matTooltip="Delete">
+                <mat-icon svgIcon="delete-forever-icon" aria-hidden="false" aria-label="delete forever icon"></mat-icon>
+            </button>
+            <button mat-icon-button aria-label="restore-icon" matTooltip="Restore">
+                <mat-icon svgIcon="restore-icon" aria-hidden="false" aria-label="restore icon"></mat-icon>
+            </button>
+        </div>
+
+    </ng-template>
+
+    <ng-template #unArciveBtn [ngIf]="container==='archive'">
+        <div class="unArchive-btn">
+            <button mat-icon-button aria-label="reminder button" matTooltip="Reminder">
+                <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="reminder icon"></mat-icon>
+            </button>
+            <!-- <button mat-icon-button aria-label="collabrator button" matTooltip="Collabrator">
+                <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="collabrator icon"></mat-icon>
+            </button> -->
+            <button mat-icon-button aria-label="color button" matTooltip="Background">
+                <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color button icon"></mat-icon>
+            </button>
+            <button mat-icon-button aria-label="image button" matTooltip="Image">
+                <mat-icon svgIcon="image-icon" aria-hidden="false" aria-label="image icon"></mat-icon>
+            </button>
+            <button (click)="handleNoteIconsClick('archive')" mat-icon-button aria-label="archive button"
+                matTooltip="Archive">
+                <mat-icon svgIcon="unarchive-icon" aria-hidden="false" aria-label="archive icon"></mat-icon>
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="more button" matTooltip="More">
+                <mat-icon svgIcon="more-icon" aria-hidden="false" aria-label="more icon">
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="handleNoteIconsClick('trash')">Delete note</button>
+                        <button mat-menu-item>Add label</button>
+                        <button mat-menu-item>Add drawing</button>
+                        <button mat-menu-item>Make a copy</button>
+                    </mat-menu>
+                </mat-icon>
+            </button>
+        </div>
+    </ng-template>
+</div>

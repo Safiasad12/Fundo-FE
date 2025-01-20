@@ -1,0 +1,25 @@
+.note-card-container{
+    display: flex;
+    flex-wrap: wrap;
+    // border: 7px solid rgb(225, 21, 21);
+    width: calc(100% - 90px);
+
+    justify-content: center;
+}
+
+//  .note-card-container div{
+//     border: 1px solid black;
+//     // height: 10%;
+    
+// }
+
+// app-add-note{
+//     border: 1px solid black;
+
+
+.cnt{
+    display: flex;
+    flex-direction: column;
+    // border: 1px solid pink;
+    align-items: center;
+}

@@ -69,13 +69,13 @@ body {
         font-size: 14px;
     }
 
-    a {
-        align-self: flex-start;
-        color: #2851a3;
-        text-decoration: none;
-        font-size: 12px;
-        margin-bottom: 1rem;
-    }
+    // a {
+    //     align-self: flex-start;
+    //     color: #2851a3;
+    //     text-decoration: none;
+    //     font-size: 12px;
+    //     margin-bottom: 1rem;
+    // }
 }
 
 .links {
@@ -84,18 +84,11 @@ body {
     align-items: center;
     width: 100%;
     margin-top: 20px;
+    color: #0b53ed;
 
-    a {
-        color: #3367d6;
-        text-decoration: none;
-        font-size: 14px;
-
-        &:hover {
-            text-decoration: none;
-        }
     }
 
-    button {
+    .login-button {
         background-color: #1a73e8;
         color: white;
         padding: 10px 20px;
@@ -113,4 +106,3 @@ body {
             box-shadow: 0 0 4px rgba(26, 115, 232, 0.5);
         }
     }
-}

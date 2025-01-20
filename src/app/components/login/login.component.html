@@ -1,4 +1,3 @@
-<span>{{text}}</span>
 <div class="login-container">
     <div class="login-form">
       <h2 id="title">Fundo</h2>
@@ -24,14 +23,18 @@
   
         <!-- <a href="#" class="forgot-password">Forgot Password?</a> -->
 
-        <a mat-button href="signup.html/" target="_blank">Forgot Password</a>
+        <!-- <a mat-button href="signup.html/" target="_blank">Forgot Password</a> -->
+
+        <button  style="color:#2851a3" mat-flat-button>Forgot Password</button>
 
         <div class="links">
           <!-- <a href="signup.html" class="create-account">Create account</a> -->
 
-          <a mat-button href="signup.html/" target="_blank">Create account</a>
+          <!-- <a mat-button target="_blank">Create account</a> -->
 
-          <button type="submit" class="login-button" (click)="handleLogin()">Login</button>
+          <button style="color:#2851a3" mat-flat-button>Create account</button>
+
+          <button class="login-button" (click)="handleLogin()">Login</button>
         </div>
       </form>
     </div>
