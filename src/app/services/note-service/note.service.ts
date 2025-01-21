@@ -10,18 +10,17 @@ export class NoteService {
   constructor(private httpService: HttpService) { }
 
   getHeader(){
-    return new HttpHeaders({
-      "Authorization": "Bearer " + localStorage.getItem("authToken") || ""
-    });
+      return new HttpHeaders({
+        "Authorization": "Bearer " + localStorage.getItem("authToken") || ""
+      });
   }
 
-  getId(){
-    return new HttpHeaders({
-      "Id": localStorage.getItem("_id") || ""
-    });
-  }
+  
+
+
 
   addNoteApiCall(data: any){
+
     return this.httpService.postApiCall("http://localhost:5000/api/v1/note/", data, this.getHeader())
   }
 
@@ -29,7 +28,12 @@ export class NoteService {
     return this.httpService.getApiCall("http://localhost:5000/api/v1/note/", this.getHeader())
   }
 
-  // toggleArchiveApiCall(){
-  //   return this.httpService.postApiCall("http://localhost:5000/api/v1/note/archive/678e0ed2ad16a4b1d6feddbe")
-  // }
+  toggleArchiveApiCall(id: any){ 
+    return this.httpService.putApiCall("http://localhost:5000/api/v1/note/archive/"+id, {}, this.getHeader())
+  }
+
+  toggleTrashApiCall(id: any){ 
+    return this.httpService.putApiCall("http://localhost:5000/api/v1/note/trash/"+id, {}, this.getHeader())
+  }
+
 }

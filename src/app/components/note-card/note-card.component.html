@@ -9,12 +9,32 @@
         <button mat-icon-button aria-label="reminder button" matTooltip="Reminder">
             <mat-icon svgIcon="reminder-icon" aria-hidden="false" aria-label="reminder icon"></mat-icon>
         </button>
-        <!-- <button mat-icon-button aria-label="collabrator button" matTooltip="Collabrator">
+        <button mat-icon-button aria-label="collabrator button" matTooltip="Collabrator">
             <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="collabrator icon"></mat-icon>
-        </button> -->
-        <button mat-icon-button aria-label="color button" matTooltip="Background">
-            <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color button icon"></mat-icon>
         </button>
+        <button mat-icon-button aria-label="color button" matTooltip="Background" [matMenuTriggerFor]="colorMenu">
+            <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color button icon">
+               
+            </mat-icon>
+           
+        </button>
+        <mat-menu #colorMenu>
+            <div class="color-palate-cnt">    
+                <div class="col1" matTooltip="Default" (click)="handleNoteIconsClick('#FFFFFF')"></div>
+                <div class="col2" matTooltip="Coral" (click)="handleNoteIconsClick('#FAAFA8')"></div>
+                <div class="col3" matTooltip="Peach" (click)="handleNoteIconsClick('#F39F76')"></div>
+                <div class="col4" matTooltip="Sand" (click)="handleNoteIconsClick('#FFF8B8')"></div>
+                <div class="col5" matTooltip="Mint" (click)="handleNoteIconsClick('#E2F6D3')"></div>
+                <div class="col6" matTooltip="Sage" (click)="handleNoteIconsClick('#B4DDD3')"></div>
+                <div class="col7" matTooltip="Fog" (click)="handleNoteIconsClick('#D4E4ED')"></div>
+                <div class="col8" matTooltip="Storm" (click)="handleNoteIconsClick('#AECCDC')"></div>
+                <div class="col9" matTooltip="Dusk" (click)="handleNoteIconsClick('#D3BFDB')"></div>
+                <div class="col10" matTooltip="Blossom" (click)="handleNoteIconsClick('#F6E2DD')"></div>
+                <div class="col11" matTooltip="Clay" (click)="handleNoteIconsClick('#E9E3D4')"></div>
+                <div class="col12" matTooltip="Chalk" (click)="handleNoteIconsClick('#EFEFF1')"></div>           
+            </div>
+        </mat-menu>
+
         <button mat-icon-button aria-label="image button" matTooltip="Image">
             <mat-icon svgIcon="image-icon" aria-hidden="false" aria-label="image icon"></mat-icon>
         </button>
@@ -54,15 +74,16 @@
             <!-- <button mat-icon-button aria-label="collabrator button" matTooltip="Collabrator">
                 <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="collabrator icon"></mat-icon>
             </button> -->
-            <button mat-icon-button aria-label="color button" matTooltip="Background">
-                <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color button icon"></mat-icon>
+            <button mat-icon-button aria-label="color button" matTooltip="Background"> 
+                <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color button icon">             
+                </mat-icon>
             </button>
             <button mat-icon-button aria-label="image button" matTooltip="Image">
                 <mat-icon svgIcon="image-icon" aria-hidden="false" aria-label="image icon"></mat-icon>
             </button>
-            <button (click)="handleNoteIconsClick('archive')" mat-icon-button aria-label="archive button"
-                matTooltip="Archive">
-                <mat-icon svgIcon="unarchive-icon" aria-hidden="false" aria-label="archive icon"></mat-icon>
+            <button (click)="handleNoteIconsClick('unArchive')" mat-icon-button aria-label="unArchive button"
+                matTooltip="unArchive">
+                <mat-icon svgIcon="unarchive-icon" aria-hidden="false" aria-label="unArchive icon"></mat-icon>
             </button>
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="more button" matTooltip="More">
                 <mat-icon svgIcon="more-icon" aria-hidden="false" aria-label="more icon">

@@ -15,16 +15,13 @@ export class TrashContainerComponent {
       ngOnInit() {
         this.noteService.fetchNotesApiCall().subscribe({
           next:(res:any)=>{
-    
-    
-            for(let note of res.notes){
-              if(note.isTrash){
-                this.trashNotesList.push(note);
-              }
-            }
+
+            this.trashNotesList=res.notes.filter((note: any)=> note.isTrash)
             
           },
+
           error: (err)=>{
+            
             console.log(err);
             
           }

@@ -19,17 +19,8 @@ constructor(private noteService: NoteService, private dataService: DataService){
     this.noteService.fetchNotesApiCall().subscribe({
       next:(res:any)=>{
 
-        console.log(res)
+        this.notesList=res.notes.filter((note: any)=> !(note.isArchive) && !(note.isTrash))
 
-        for(let note of res.notes){
-
-          if(note.isArchive || note.isTrash){
-            continue;
-          }
-          else{
-            this.notesList.unshift(note);
-          }
-        }
       },
       error: (err)=>{
         console.log(err);
@@ -55,10 +46,11 @@ constructor(private noteService: NoteService, private dataService: DataService){
     }
     else if(action === 'archive' || action === 'trash'){
       this.notesList=this.notesList.filter((note: any)=> note._id !== data._id)
-      localStorage.setItem("_id", data._id)
-      // console.log(data._id);
+
+       
+      }
+
     }
   
    }
 
-}

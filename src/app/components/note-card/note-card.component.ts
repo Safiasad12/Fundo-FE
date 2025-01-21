@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ARCHIVE_ICON, COLLABRATOR_ICON, COLOR_PALATTE_ICON, IMG_ICON, MORE_ICON, REMINDER_ICON, RESTORE_ICON, DELETE_FOREVER_ICON, UNARCHIVE_ICON, NOTE_ICON } from '../../../assets/svg-icons';
+import { NoteService } from 'src/app/services/note-service/note.service';
+
 @Component({
   selector: 'app-note-card',
   templateUrl: './note-card.component.html',
@@ -16,7 +18,7 @@ export class NoteCardComponent {
  @Output() updateNotesList = new EventEmitter()
 
 
- constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer ) {
+ constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer, private noteService: NoteService ) {
   iconRegistry.addSvgIconLiteral('reminder-icon', sanitizer.bypassSecurityTrustHtml(REMINDER_ICON));
   iconRegistry.addSvgIconLiteral('collabrator-icon', sanitizer.bypassSecurityTrustHtml(COLLABRATOR_ICON));
   iconRegistry.addSvgIconLiteral('color-palatte-icon', sanitizer.bypassSecurityTrustHtml(COLOR_PALATTE_ICON));
@@ -29,7 +31,51 @@ export class NoteCardComponent {
  
 
 }
+
+
 handleNoteIconsClick(action: string){
+
+  if(action === 'archive'){
+    this.noteService.toggleArchiveApiCall(this.noteDetails._id).subscribe({
+      next: (res)=>{
+        console.log(res);
+        
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    })
+  }
+
+  else if(action === 'trash'){
+    this.noteService.toggleTrashApiCall(this.noteDetails._id).subscribe({
+      next: (res)=>{
+        console.log(res);
+        
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    })
+  }
+
+  else if(action === 'unArchive'){
+    this.noteService.toggleArchiveApiCall(this.noteDetails._id).subscribe({
+      next: (res)=>{
+        console.log(res);
+        
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    })
+  }
+
   this.updateNotesList.emit({data: this.noteDetails, action})
+  
+ 
 }
+
 }
+
+

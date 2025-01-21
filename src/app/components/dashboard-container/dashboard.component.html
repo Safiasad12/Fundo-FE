@@ -23,14 +23,20 @@
 
         <button class="profile" [matMenuTriggerFor]="profile">
            S
-
             <mat-menu #profile="matMenu">
                 <button mat-menu-item>safi123</button>
                 <button mat-menu-item>safiasad12@gmail.com</button>
-                <button mat-menu-item (click)="signout()">sign out</button>
+                <button mat-menu-item (click)="handleSignout()">sign out</button>
             </mat-menu>
         </button>
     </div>
+
+    
+    
+    
+    
+    
+    
 
 
     <div class="body">
@@ -39,7 +45,7 @@
         <router-outlet>
             <div class="side-navbar">
 
-                <button mat-icon-button aria-label="note button" matTooltip="note">
+                <button mat-icon-button aria-label="note button" matTooltip="note" (click)="handleSidebarIcons('note')">
                     <mat-icon svgIcon="note-icon" aria-hidden="false" aria-label="note button icon"></mat-icon>
                 </button>
 
@@ -47,25 +53,17 @@
                     <mat-icon svgIcon="edit-icon" aria-hidden="false" aria-label="edit button icon"></mat-icon>
                 </button>
 
-                <button mat-icon-button aria-label="archive button" matTooltip="archive">
-                    <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="archive button icon"></mat-icon>
+                <button mat-icon-button aria-label="archive button" matTooltip="archive" (click)="handleSidebarIcons('archive')">
+                    <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="archive button icon" ></mat-icon>
                 </button>
 
-                <button mat-icon-button aria-label="trash button" matTooltip="trash">
+                <button mat-icon-button aria-label="trash button" matTooltip="trash" (click)="handleSidebarIcons('trash')">
                     <mat-icon svgIcon="trash-icon" aria-hidden="false" aria-label="trash button icon"></mat-icon>
                 </button>
-
-               
-            
 
             </div>
         </router-outlet>
 
     </div>
     
-
-
-
-
-
-
+   

@@ -14,6 +14,9 @@ import { DataService } from 'src/app/services/data-service/data.service';
 export class DashboardComponent {
 
   searchQuery: string = ''
+  
+
+
 
   constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer, private router: Router, private dataService: DataService){
     iconRegistry.addSvgIconLiteral('note-icon', sanitizer.bypassSecurityTrustHtml(NOTE_ICON));
@@ -27,13 +30,27 @@ export class DashboardComponent {
 
   }
 
-  signout(){
+  handleSignout(){
     localStorage.clear();
     this.router.navigate([""]);
   }
 
   handleSearchQuery(){
     this.dataService.updateSearchQuery(this.searchQuery)
+  }
+
+  handleSidebarIcons($event: string){
+    if($event==='note'){
+      this.router.navigate(["/dashboard/notes"])
+    }
+    else if($event==='archive'){
+      this.router.navigate(["/dashboard/archive"])
+    }
+    else if($event==='trash'){
+      this.router.navigate(["/dashboard/trash"])
+    }
+    console.log($event);
+    
   }
 
 }
