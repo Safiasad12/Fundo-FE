@@ -1,13 +1,13 @@
 <div class="cnt">
     
-<div *ngIf="!isExpanded; else expandedNote" class="note-collapsed" (click)="handleAddNote()">
+<div *ngIf="!isExpanded; else expandedNote" class="note-collapsed" (click)="handleAddNoteIconsClick('close')">
     <span>Take a note...</span>
 </div>
 
 <ng-template #expandedNote>
-        <div class="note-expanded">
-            <input  [(ngModel)]="title" type="text" placeholder="Title" class="title-input"/>
-            <textarea [(ngModel)]="description" placeholder="Take a note..." class="note-textarea" ></textarea>
+        <div class="note-expanded" [style.backgroundColor]="color">
+            <input  [style.backgroundColor]="color" [(ngModel)]="title" type="text" placeholder="Title" class="title-input"/>
+            <textarea [(ngModel)]="description" placeholder="Take a note..." class="note-textarea" [style.backgroundColor]="color"></textarea>
             <div class="buttons">
                 <div class="icon-btn">
                     <button mat-icon-button aria-label="reminder button" matTooltip="Reminder">
@@ -16,12 +16,38 @@
                     <button mat-icon-button aria-label="collabrator button" matTooltip="Collabrator">
                         <mat-icon svgIcon="collabrator-icon" aria-hidden="false" aria-label="collabrator icon"></mat-icon>
                     </button>
-                    <button mat-icon-button aria-label="color button" matTooltip="Background Color Options">
+                    <!-- <button mat-icon-button aria-label="color button" matTooltip="Background Color Options">
                         <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color button icon"></mat-icon>
+                    </button> -->
+                    <button mat-icon-button aria-label="color button" matTooltip="Background" [matMenuTriggerFor]="colorMenu">
+                        <mat-icon svgIcon="color-palatte-icon" aria-hidden="false" aria-label="color button icon">
+                           
+                        </mat-icon>
+                       
                     </button>
+                    <mat-menu #colorMenu>
+                        <div class="color-palate-cnt">    
+                            <div class="col1" matTooltip="Default" (click)="handleAddNoteIconsClick('color', '#FFFFFF')"></div>
+                            <div class="col2" matTooltip="Coral" (click)="handleAddNoteIconsClick('color', '#FAAFA8')"></div>
+                            <div class="col3" matTooltip="Peach" (click)="handleAddNoteIconsClick('color','#F39F76')"></div>
+                            <div class="col4" matTooltip="Sand" (click)="handleAddNoteIconsClick('color','#FFF8B8')"></div>
+                            <div class="col5" matTooltip="Mint" (click)="handleAddNoteIconsClick('color','#E2F6D3')"></div>
+                            <div class="col6" matTooltip="Sage" (click)="handleAddNoteIconsClick('color','#B4DDD3')"></div>
+                            <div class="col7" matTooltip="Fog" (click)="handleAddNoteIconsClick('color','#D4E4ED')"></div>
+                            <div class="col8" matTooltip="Storm" (click)="handleAddNoteIconsClick('color','#AECCDC')"></div>
+                            <div class="col9" matTooltip="Dusk" (click)="handleAddNoteIconsClick('color','#D3BFDB')"></div>
+                            <div class="col10" matTooltip="Blossom" (click)="handleAddNoteIconsClick('color','#F6E2DD')"></div>
+                            <div class="col11" matTooltip="Clay" (click)="handleAddNoteIconsClick('color','#E9E3D4')"></div>
+                            <div class="col12" matTooltip="Chalk" (click)="handleAddNoteIconsClick('color','#EFEFF1')"></div>           
+                        </div>
+                    </mat-menu>
+                    <button mat-icon-button aria-label="archive button" matTooltip="archive" (click)="handleAddNoteIconsClick('archive')">
+                        <mat-icon svgIcon="archive-icon" aria-hidden="false" aria-label="archive icon"></mat-icon>
+                    </button>
+
                 </div>
                
-                <button mat-icon-button type="submit" class="close-btn" (click)="handleAddNote()">Close</button>
+                <button mat-icon-button type="submit" class="close-btn" (click)="handleAddNoteIconsClick('close')">Close</button>
             </div>
             
         </div>

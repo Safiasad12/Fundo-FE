@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -56,7 +58,8 @@ import { SearchPipe } from './pipe/search.pipe';
     MatIconModule,
     HttpClientModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

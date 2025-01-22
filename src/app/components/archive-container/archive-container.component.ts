@@ -37,7 +37,6 @@ export class ArchiveContainerComponent {
 
     handleArchiveNotesList($event: {data: any, action: string}) {
       const {data, action} = $event
-      console.log("parent method called", $event);
   
       if(action === 'unarchive' || action === 'trash'){
         this.archiveNotesList=this.archiveNotesList.filter((note: any)=> note._id !== data._id)

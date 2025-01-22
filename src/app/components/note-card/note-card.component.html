@@ -1,8 +1,8 @@
-<div class="note-card" [style.backgroundColor]="noteDetails?.color">
-    <div class="note-card-header">
+<div class="note-card" [style.backgroundColor]="noteDetails?.color" >
+    <div class="note-card-header" (click)="handleEditNote()">
         <h3 class="note-title">{{noteDetails?.title | uppercase}}</h3>
     </div>
-    <div class="note-card-body">
+    <div class="note-card-body" (click)="handleEditNote()">
         <p class="note-content">{{noteDetails?.description}}</p>
     </div>
     <div class="notes-btn" *ngIf="container==='notes'">

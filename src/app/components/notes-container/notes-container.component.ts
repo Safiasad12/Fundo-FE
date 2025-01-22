@@ -19,7 +19,11 @@ export class NotesContainerComponent {
     this.noteService.fetchNotesApiCall().subscribe({
       next: (res: any) => {
 
-        this.notesList = res.notes.filter((note: any) => !(note.isArchive) && !(note.isTrash))
+        console.log(res);
+        
+        this.notesList = res.notes.filter((note: any) => !(note.isArchive) && !(note.isTrash)).reverse()
+        console.log(this.notesList);
+        
 
       },
       error: (err) => {
@@ -50,13 +54,19 @@ export class NotesContainerComponent {
 
     }
 
-    else if (action === 'color') {
+    else if (action === 'color' || action === 'update') {
       for (let note of this.notesList) {
         if (note._id === data._id) {
           note = data;
         }
       }
       console.log(this.notesList);
+      this.notesList = this.notesList.map((note: any) => {
+        if (note._id === data._id) {
+              note = data;
+            }
+            return note
+      })
     }
 
   }
