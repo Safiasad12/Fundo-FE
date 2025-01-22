@@ -41,4 +41,9 @@ export class NoteService {
     return this.httpService.putApiCall("http://localhost:5000/api/v1/note/color/"+id, color)
   }
 
+  deletePermanentlyApiCall(id: any){
+    
+    return this.httpService.deleteApiCall("http://localhost:5000/api/v1/note/"+id, this.getHeader())
+  }
+
 }

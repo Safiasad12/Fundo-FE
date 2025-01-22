@@ -77,6 +77,30 @@ handleNoteIconsClick(action: string, color: string = "#ffffff"){
     this.noteService.changeColorApiCall(this.noteDetails._id, {"color": color}).subscribe({
       next: (res)=>{
         console.log(res);
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    })
+  }
+
+  else if(action === 'delete'){
+
+    this.noteService.deletePermanentlyApiCall(this.noteDetails._id).subscribe({
+      next: (res)=>{
+        console.log(res);
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    })
+
+  }
+
+  else if(action === 'restore'){
+    this.noteService.toggleTrashApiCall(this.noteDetails._id).subscribe({
+      next: (res)=>{
+        console.log(res);
         
       },
       error: (err)=>{

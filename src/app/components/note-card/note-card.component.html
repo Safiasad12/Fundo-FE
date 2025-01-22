@@ -56,11 +56,11 @@
 
     <ng-template #trashBtn [ngIf]="container==='trash'">
         <div class="trash-btn">
-            <button mat-icon-button aria-label="Delete button" matTooltip="Delete">
+            <button mat-icon-button aria-label="Delete button" matTooltip="Delete" (click)="handleNoteIconsClick('delete')">
                 <mat-icon svgIcon="delete-forever-icon" aria-hidden="false" aria-label="delete forever icon"></mat-icon>
             </button>
-            <button mat-icon-button aria-label="restore-icon" matTooltip="Restore">
-                <mat-icon svgIcon="restore-icon" aria-hidden="false" aria-label="restore icon"></mat-icon>
+            <button mat-icon-button aria-label="restore-icon" matTooltip="Restore" (click)="handleNoteIconsClick('restore')">
+                <mat-icon svgIcon="restore-icon" aria-hidden="false" aria-label="restore icon"></mat-icon>  
             </button>
         </div>
 

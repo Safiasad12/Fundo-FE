@@ -24,4 +24,8 @@ export class HttpService {
     
     return this.httpClient.put(url, data, {headers: header})
   }
+
+  deleteApiCall(url: string, header: any = {}){  
+    return this.httpClient.delete(url, {headers: header})
+  }
 }
