@@ -36,4 +36,9 @@ export class NoteService {
     return this.httpService.putApiCall("http://localhost:5000/api/v1/note/trash/"+id, {}, this.getHeader())
   }
 
+  changeColorApiCall(id: any, color: any){
+    console.log(color);
+    return this.httpService.putApiCall("http://localhost:5000/api/v1/note/color/"+id, color)
+  }
+
 }

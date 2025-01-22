@@ -17,11 +17,13 @@ export class ArchiveContainerComponent {
         next:(res:any)=>{
   
   
-          for(let note of res.notes){
-            if(note.isArchive){
-              this.archiveNotesList.push(note);
-            }
-          }
+          // for(let note of res.notes){
+          //   if(note.isArchive){
+          //     this.archiveNotesList.push(note);
+          //   }
+          // }
+
+          this.archiveNotesList=res.notes.filter((note: any)=> note.isArchive)
           
         },
         error: (err)=>{
@@ -37,7 +39,7 @@ export class ArchiveContainerComponent {
       const {data, action} = $event
       console.log("parent method called", $event);
   
-      if(action === 'delete' || action === 'restore'){
+      if(action === 'unarchive' || action === 'trash'){
         this.archiveNotesList=this.archiveNotesList.filter((note: any)=> note._id !== data._id)
       }
     

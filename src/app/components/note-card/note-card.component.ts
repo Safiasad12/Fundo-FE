@@ -18,6 +18,7 @@ export class NoteCardComponent {
  @Output() updateNotesList = new EventEmitter()
 
 
+
  constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer, private noteService: NoteService ) {
   iconRegistry.addSvgIconLiteral('reminder-icon', sanitizer.bypassSecurityTrustHtml(REMINDER_ICON));
   iconRegistry.addSvgIconLiteral('collabrator-icon', sanitizer.bypassSecurityTrustHtml(COLLABRATOR_ICON));
@@ -33,7 +34,7 @@ export class NoteCardComponent {
 }
 
 
-handleNoteIconsClick(action: string){
+handleNoteIconsClick(action: string, color: string = "#ffffff"){
 
   if(action === 'archive'){
     this.noteService.toggleArchiveApiCall(this.noteDetails._id).subscribe({
@@ -59,7 +60,7 @@ handleNoteIconsClick(action: string){
     })
   }
 
-  else if(action === 'unArchive'){
+  else if(action === 'unarchive'){
     this.noteService.toggleArchiveApiCall(this.noteDetails._id).subscribe({
       next: (res)=>{
         console.log(res);
@@ -71,7 +72,21 @@ handleNoteIconsClick(action: string){
     })
   }
 
-  this.updateNotesList.emit({data: this.noteDetails, action})
+  else if(action === 'color'){
+    console.log(color);
+    this.noteService.changeColorApiCall(this.noteDetails._id, {"color": color}).subscribe({
+      next: (res)=>{
+        console.log(res);
+        
+      },
+      error: (err)=>{
+        console.log(err);
+      }
+    })
+  }
+
+
+  this.updateNotesList.emit({data: action == 'color' ? this.noteDetails.color= color :  this.noteDetails, action})
   
  
 }

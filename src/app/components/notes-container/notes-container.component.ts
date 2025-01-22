@@ -9,48 +9,57 @@ import { NoteService } from 'src/app/services/note-service/note.service';
 })
 export class NotesContainerComponent {
 
-notesList:any[] = []
+  notesList: any[] = []
 
-searchQuery: string ="";
+  searchQuery: string = "";
 
-constructor(private noteService: NoteService, private dataService: DataService){}
+  constructor(private noteService: NoteService, private dataService: DataService) { }
 
   ngOnInit() {
     this.noteService.fetchNotesApiCall().subscribe({
-      next:(res:any)=>{
+      next: (res: any) => {
 
-        this.notesList=res.notes.filter((note: any)=> !(note.isArchive) && !(note.isTrash))
+        this.notesList = res.notes.filter((note: any) => !(note.isArchive) && !(note.isTrash))
 
       },
-      error: (err)=>{
+      error: (err) => {
         console.log(err);
-        
+
       }
 
-     })
+    })
 
-     this.dataService.currentSearchQuery.subscribe({
-      next: (res)=>{
+    this.dataService.currentSearchQuery.subscribe({
+      next: (res) => {
         console.log(res);
-        this.searchQuery=res;
-        
-      }
-     })
-   }
+        this.searchQuery = res;
 
-   handleNotesList($event: {data: any, action: string}) {
-    const {data, action} = $event
+      }
+    })
+  }
+
+  handleNotesList($event: { data: any, action: string }) {
+    const { data, action } = $event
     console.log("parent method called", $event);
-    if(action === 'add'){
+    if (action === 'add') {
       this.notesList = [data, ...this.notesList]
     }
-    else if(action === 'archive' || action === 'trash'){
-      this.notesList=this.notesList.filter((note: any)=> note._id !== data._id)
+    else if (action === 'archive' || action === 'trash') {
+      this.notesList = this.notesList.filter((note: any) => note._id !== data._id)
 
-       
-      }
 
     }
-  
-   }
+
+    else if (action === 'color') {
+      for (let note of this.notesList) {
+        if (note._id === data._id) {
+          note = data;
+        }
+      }
+      console.log(this.notesList);
+    }
+
+  }
+
+}
 
