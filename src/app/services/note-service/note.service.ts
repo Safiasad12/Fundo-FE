@@ -46,6 +46,10 @@ export class NoteService {
     return this.httpService.deleteApiCall("http://localhost:5000/api/v1/note/"+id, this.getHeader())
   }
 
-  
+  updateNoteApiCall(id: any, data: any){
+    return this.httpService.putApiCall("http://localhost:5000/api/v1/note/"+id, data, this.getHeader())
+  }
+
+
 
 }

@@ -27,18 +27,18 @@
                     </button>
                     <mat-menu #colorMenu>
                         <div class="color-palate-cnt">    
-                            <div class="col1" matTooltip="Default" (click)="handleAddNoteIconsClick('color', '#FFFFFF')"></div>
-                            <div class="col2" matTooltip="Coral" (click)="handleAddNoteIconsClick('color', '#FAAFA8')"></div>
-                            <div class="col3" matTooltip="Peach" (click)="handleAddNoteIconsClick('color','#F39F76')"></div>
-                            <div class="col4" matTooltip="Sand" (click)="handleAddNoteIconsClick('color','#FFF8B8')"></div>
-                            <div class="col5" matTooltip="Mint" (click)="handleAddNoteIconsClick('color','#E2F6D3')"></div>
-                            <div class="col6" matTooltip="Sage" (click)="handleAddNoteIconsClick('color','#B4DDD3')"></div>
-                            <div class="col7" matTooltip="Fog" (click)="handleAddNoteIconsClick('color','#D4E4ED')"></div>
-                            <div class="col8" matTooltip="Storm" (click)="handleAddNoteIconsClick('color','#AECCDC')"></div>
-                            <div class="col9" matTooltip="Dusk" (click)="handleAddNoteIconsClick('color','#D3BFDB')"></div>
-                            <div class="col10" matTooltip="Blossom" (click)="handleAddNoteIconsClick('color','#F6E2DD')"></div>
-                            <div class="col11" matTooltip="Clay" (click)="handleAddNoteIconsClick('color','#E9E3D4')"></div>
-                            <div class="col12" matTooltip="Chalk" (click)="handleAddNoteIconsClick('color','#EFEFF1')"></div>           
+                            <div class="col1" matTooltip="Default" (click)="handleBackGroundColorForInputField('#FFFFFF')"></div>
+                            <div class="col2" matTooltip="Coral" (click)="handleBackGroundColorForInputField('#FAAFA8')"></div>
+                            <div class="col3" matTooltip="Peach" (click)="handleBackGroundColorForInputField('#F39F76')"></div>
+                            <div class="col4" matTooltip="Sand" (click)="handleBackGroundColorForInputField('#FFF8B8')"></div>
+                            <div class="col5" matTooltip="Mint" (click)="handleBackGroundColorForInputField('#E2F6D3')"></div>
+                            <div class="col6" matTooltip="Sage" (click)="handleBackGroundColorForInputField('#B4DDD3')"></div>
+                            <div class="col7" matTooltip="Fog" (click)="handleBackGroundColorForInputField('#D4E4ED')"></div>
+                            <div class="col8" matTooltip="Storm" (click)="handleBackGroundColorForInputField('#AECCDC')"></div>
+                            <div class="col9" matTooltip="Dusk" (click)="handleBackGroundColorForInputField('#D3BFDB')"></div>
+                            <div class="col10" matTooltip="Blossom" (click)="handleBackGroundColorForInputField('#F6E2DD')"></div>                        
+                            <div class="col11" matTooltip="Clay" (click)="handleBackGroundColorForInputField('#E9E3D4')"></div>
+                            <div class="col12" matTooltip="Chalk" (click)="handleBackGroundColorForInputField('#EFEFF1')"></div>           
                         </div>
                     </mat-menu>
                     <button mat-icon-button aria-label="archive button" matTooltip="archive" (click)="handleAddNoteIconsClick('archive')">
@@ -47,7 +47,8 @@
 
                 </div>
                
-                <button mat-icon-button type="submit" class="close-btn" (click)="handleAddNoteIconsClick('close')">Close</button>
+                <!-- <button mat-icon-button type="submit" class="close-btn" (click)="handleAddNoteIconsClick('close')">Close</button> -->
+                 <button type="'submit" class="close-btn"  (click)="handleAddNoteIconsClick('close')">Close</button>
             </div>
             
         </div>

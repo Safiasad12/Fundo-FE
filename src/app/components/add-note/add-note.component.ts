@@ -27,7 +27,9 @@ export class AddNoteComponent {
 
   constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer, private noteService: NoteService, @Optional() @Inject(MAT_DIALOG_DATA) public data: any, @Optional() public dialogRef: MatDialogRef<AddNoteComponent>) {
 
+    console.log("this is data");
     console.log(data);
+
     if(data) {
     this.isExpanded = data?.openEditNote
     this.title = data?.noteDetails.title
@@ -46,8 +48,16 @@ export class AddNoteComponent {
 
  
 
+  handleBackGroundColorForInputField(color: string = this.color){
 
-  handleAddNoteIconsClick(action: string, color: string = this.color) {
+    this.color = color;
+
+  }
+
+
+
+
+  handleAddNoteIconsClick(action: string) {
 
     
     // note open
@@ -57,18 +67,14 @@ export class AddNoteComponent {
 
    else{
 
-    if(action === 'color'){
-      this.color=color;
-    }
-
     if(action === 'close' || action === 'archive'){
       this.isExpanded = !this.isExpanded; 
-      if(this.title !== "" || this.description !== ""){
+      if(!this.data){
 
         if(action==='archive'){
           this.isArchive = true;
         }
-
+       
         this.noteService.addNoteApiCall({"title" :this.title, "description":this.description, "isArchive":this.isArchive, "color" : this.color}).subscribe({
           
           next: (res: any) => {
@@ -86,30 +92,40 @@ export class AddNoteComponent {
       }
       this.color = "#ffffff";
 
-     
-
     }
    
-
-   
-
     if(this.data){
-      //aspi call
+
+      if(action === 'close'){
+
+        this.noteService.updateNoteApiCall(this.data.noteDetails._id, {"newTitle": this.title, "newDescription": this.description}).subscribe({
+        
+          next: (res)=>{
+            console.log(res);
+            
+          },
+          error: (err)=>{
+          
+            console.log(err);
+            
+          }
+        })
+
+      }
+    
       this.dialogRef.close({...this.data.noteDetails, title:this.title, description:this.description})
     }
 
-    if(action !== 'color'){
-
-       this.title = ""
+      this.title = ""
       this.description = ""
 
-    }
       
-    }
+  }
 
    
-
-   }
+    console.log(this.isArchive);
+    
+   } 
    
   }
 
