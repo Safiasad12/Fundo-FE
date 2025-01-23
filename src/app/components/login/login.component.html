@@ -8,16 +8,22 @@
         <mat-form-field appearance="outline">
           <mat-label for="email">Email</mat-label>
           <input formControlName="email" matInput id="email" type="email" placeholder="Email" required aria-label="Email">
-          <mat-error *ngIf="submitted && loginControls?.['email']?.['errors']?.['required']">Email is
+          <mat-error *ngIf="submitted && loginControls?.['email']?.errors?.['required']">Email is
             required</mat-error>
-        <mat-error *ngIf="submitted && loginControls?.['email']?.['errors']?.['email']">Incorrect Email
-            Format</mat-error>
+        <mat-error *ngIf="submitted && loginControls?.['email']?.errors?.['email']">Invalid Email
+            address</mat-error>
         </mat-form-field>
-  
+        
         
         <mat-form-field appearance="outline">
           <mat-label for="password">Password</mat-label>
           <input formControlName="password" matInput id="password" type="password" placeholder="Password" required aria-label="Password">
+          <mat-error *ngIf="submitted && loginControls['password']?.errors?.['required']">
+            Password is required
+          </mat-error>
+          <mat-error *ngIf="submitted && loginControls['password']?.errors?.['minlength']">
+            Password must be at least 6 characters long
+          </mat-error>
         </mat-form-field>
 
   
@@ -34,7 +40,7 @@
 
           <button style="color:#2851a3" mat-flat-button>Create account</button>
 
-          <button class="login-button" (click)="handleLogin()">Login</button>
+          <button class="login-button" type='submit' (click)="handleLogin()">Login</button>
         </div>
       </form>
     </div>

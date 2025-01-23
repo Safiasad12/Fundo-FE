@@ -22,32 +22,58 @@ export class LoginComponent {
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required]],
+            password: ['', [Validators.required, Validators.minLength(6)]],
         });
     }
 
-    get loginControls() { return this.loginForm.controls; }
+    get loginControls(){ 
+      return this.loginForm.controls; 
+    }
 
-  handleLogin() {
-    const {email, password} = this.loginForm.value
-    if(this.loginForm.status == "INVALID") {
-      this.submitted = true
-    } else {
+  // handleLogin() {
+  //   const {email, password} = this.loginForm.value
+  //   if(this.loginForm.status == "INVALID") {
+  //     this.submitted = true
+  //   } else {
 
     
-      this.userService.loginApiCall({email, password}).subscribe({
-        next: (res: any) => {
-          console.log(res);
-          localStorage.setItem("authToken", res.token)
-          this.router.navigate(["/dashboard/notes"])
+  //     this.userService.loginApiCall({email, password}).subscribe({
+  //       next: (res: any) => {
+  //         console.log(res);
+  //         localStorage.setItem("authToken", res.token)
+  //         this.router.navigate(["/dashboard/notes"])
           
-        },
-        error: (err) => {
-          console.log(err);
+  //       },
+  //       error: (err) => {
+  //         console.log(err);
           
-        }
-      });
+  //       }
+  //     });
       
+  //   }
+  // }
+
+  handleLogin() {
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      return;
     }
+  
+    const { email, password } = this.loginForm.value;
+    this.userService.loginApiCall({ email, password }).subscribe({
+      next: (res: any) => {
+        console.log("api gets called");
+        
+        localStorage.setItem("authToken", res.token);
+        this.router.navigate(["/dashboard/notes"]);
+      },
+      error: (err) => {
+
+        // const errorMessage = err?.message || 'Internal Server Error';
+        console.log(err);
+        
+      },
+    });
   }
+  
 }
