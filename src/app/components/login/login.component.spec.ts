@@ -59,14 +59,26 @@ describe('LoginComponent', () => {
   it('should display validation errors when form is invalid and submitted', () => {
    
     component.submitted = true;
+
     component.loginForm.controls['email'].setValue(''); // Empty email
+    component.loginForm.controls['email'].markAsTouched();
+    component.loginForm.controls['email'].setErrors({ required: true });
+
     component.loginForm.controls['password'].setValue(''); // Empty password
+    component.loginForm.controls['password'].markAsTouched();
+    component.loginForm.controls['password'].setErrors({ required: true });
+
     fixture.detectChanges();
   
     const compiled = fixture.nativeElement;
-    const emailError = compiled.querySelector('mat-error');
-  
-    expect(emailError?.textContent).toContain('Internal Server Error');
+
+    const error = compiled.querySelectorAll('mat-error');
+
+    console.log(error);
+
+    expect(error[0]?.textContent).toContain('Email is required');
+    expect(error[1]?.textContent).toContain('Password is required');
+
   });
   
   

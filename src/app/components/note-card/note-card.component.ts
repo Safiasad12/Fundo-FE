@@ -23,15 +23,15 @@ export class NoteCardComponent {
 
 
  constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer, private noteService: NoteService, private dialog: MatDialog  ) {
-  iconRegistry.addSvgIconLiteral('reminder-icon', sanitizer.bypassSecurityTrustHtml(REMINDER_ICON));
-  iconRegistry.addSvgIconLiteral('collabrator-icon', sanitizer.bypassSecurityTrustHtml(COLLABRATOR_ICON));
-  iconRegistry.addSvgIconLiteral('color-palatte-icon', sanitizer.bypassSecurityTrustHtml(COLOR_PALATTE_ICON));
-  iconRegistry.addSvgIconLiteral('archive-icon', sanitizer.bypassSecurityTrustHtml(ARCHIVE_ICON));
-  iconRegistry.addSvgIconLiteral('image-icon', sanitizer.bypassSecurityTrustHtml(IMG_ICON));
-  iconRegistry.addSvgIconLiteral('more-icon', sanitizer.bypassSecurityTrustHtml(MORE_ICON));
-  iconRegistry.addSvgIconLiteral('restore-icon', sanitizer.bypassSecurityTrustHtml(RESTORE_ICON));
-  iconRegistry.addSvgIconLiteral('delete-forever-icon', sanitizer.bypassSecurityTrustHtml(DELETE_FOREVER_ICON));
-  iconRegistry.addSvgIconLiteral('unarchive-icon', sanitizer.bypassSecurityTrustHtml(UNARCHIVE_ICON));
+  this.iconRegistry.addSvgIconLiteral('reminder-icon', this.sanitizer.bypassSecurityTrustHtml(REMINDER_ICON));
+  this.iconRegistry.addSvgIconLiteral('collabrator-icon', this.sanitizer.bypassSecurityTrustHtml(COLLABRATOR_ICON));
+  this.iconRegistry.addSvgIconLiteral('color-palatte-icon', this.sanitizer.bypassSecurityTrustHtml(COLOR_PALATTE_ICON));
+  this.iconRegistry.addSvgIconLiteral('archive-icon', this.sanitizer.bypassSecurityTrustHtml(ARCHIVE_ICON));
+  this.iconRegistry.addSvgIconLiteral('image-icon', this.sanitizer.bypassSecurityTrustHtml(IMG_ICON));
+  this.iconRegistry.addSvgIconLiteral('more-icon', this.sanitizer.bypassSecurityTrustHtml(MORE_ICON));
+  this.iconRegistry.addSvgIconLiteral('restore-icon', this.sanitizer.bypassSecurityTrustHtml(RESTORE_ICON));
+  this.iconRegistry.addSvgIconLiteral('delete-forever-icon', this.sanitizer.bypassSecurityTrustHtml(DELETE_FOREVER_ICON));
+  this.iconRegistry.addSvgIconLiteral('unarchive-icon', this.sanitizer.bypassSecurityTrustHtml(UNARCHIVE_ICON));
  
 
 }

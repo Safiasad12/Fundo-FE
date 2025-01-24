@@ -25,25 +25,30 @@ export class AddNoteComponent {
 
 
 
-  constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer, private noteService: NoteService, @Optional() @Inject(MAT_DIALOG_DATA) public data: any, @Optional() public dialogRef: MatDialogRef<AddNoteComponent>) {
+  constructor(private iconRegistry: MatIconRegistry, 
+              private sanitizer: DomSanitizer, 
+              private noteService: NoteService, 
+              @Optional() @Inject(MAT_DIALOG_DATA) public data: any, 
+              @Optional() public dialogRef: MatDialogRef<AddNoteComponent>
+            ) {
 
-    console.log("this is data");
-    console.log(data);
+    // console.log("this is data");
+    // console.log(data);
 
     if(data) {
     this.isExpanded = data?.openEditNote
     this.title = data?.noteDetails.title
-    this.description = data?.noteDetails.description
+    this.description = data?.noteDetails.description 
     this.color = data?.noteDetails.color
     }
     
     
-    iconRegistry.addSvgIconLiteral('reminder-icon', sanitizer.bypassSecurityTrustHtml(REMINDER_ICON));
-    iconRegistry.addSvgIconLiteral('collabrator-icon', sanitizer.bypassSecurityTrustHtml(COLLABRATOR_ICON));
-    iconRegistry.addSvgIconLiteral('color-palatte-icon', sanitizer.bypassSecurityTrustHtml(COLOR_PALATTE_ICON));   
-    iconRegistry.addSvgIconLiteral('archive-icon', sanitizer.bypassSecurityTrustHtml(ARCHIVE_ICON));
-    iconRegistry.addSvgIconLiteral('image-icon', sanitizer.bypassSecurityTrustHtml(IMG_ICON));
-    iconRegistry.addSvgIconLiteral('more-icon', sanitizer.bypassSecurityTrustHtml(MORE_ICON));
+    this.iconRegistry.addSvgIconLiteral('reminder-icon', this.sanitizer.bypassSecurityTrustHtml(REMINDER_ICON));
+    this.iconRegistry.addSvgIconLiteral('collabrator-icon', this.sanitizer.bypassSecurityTrustHtml(COLLABRATOR_ICON));
+    this.iconRegistry.addSvgIconLiteral('color-palatte-icon', this.sanitizer.bypassSecurityTrustHtml(COLOR_PALATTE_ICON));   
+    this.iconRegistry.addSvgIconLiteral('archive-icon', this.sanitizer.bypassSecurityTrustHtml(ARCHIVE_ICON));
+    this.iconRegistry.addSvgIconLiteral('image-icon', this.sanitizer.bypassSecurityTrustHtml(IMG_ICON));
+    this.iconRegistry.addSvgIconLiteral('more-icon', this.sanitizer.bypassSecurityTrustHtml(MORE_ICON));
   }
 
  
@@ -122,8 +127,6 @@ export class AddNoteComponent {
       
   }
 
-   
-    console.log(this.isArchive);
     
    } 
    

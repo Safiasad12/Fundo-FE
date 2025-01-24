@@ -6,7 +6,7 @@
 
 <ng-template #expandedNote>
         <div class="note-expanded" [style.backgroundColor]="color">
-            <input  [style.backgroundColor]="color" [(ngModel)]="title" type="text" placeholder="Title" class="title-input"/>
+            <input [(ngModel)]="title" [style.backgroundColor]="color" type="text" placeholder="Title" class="title-input"/>
             <textarea [(ngModel)]="description" placeholder="Take a note..." class="note-textarea" [style.backgroundColor]="color"></textarea>
             <div class="buttons">
                 <div class="icon-btn">

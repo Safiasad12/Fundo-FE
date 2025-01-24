@@ -30,28 +30,7 @@ export class LoginComponent {
       return this.loginForm.controls; 
     }
 
-  // handleLogin() {
-  //   const {email, password} = this.loginForm.value
-  //   if(this.loginForm.status == "INVALID") {
-  //     this.submitted = true
-  //   } else {
 
-    
-  //     this.userService.loginApiCall({email, password}).subscribe({
-  //       next: (res: any) => {
-  //         console.log(res);
-  //         localStorage.setItem("authToken", res.token)
-  //         this.router.navigate(["/dashboard/notes"])
-          
-  //       },
-  //       error: (err) => {
-  //         console.log(err);
-          
-  //       }
-  //     });
-      
-  //   }
-  // }
 
   handleLogin() {
     this.submitted = true;
@@ -68,8 +47,6 @@ export class LoginComponent {
         this.router.navigate(["/dashboard/notes"]);
       },
       error: (err) => {
-
-        // const errorMessage = err?.message || 'Internal Server Error';
         console.log(err);
         
       },

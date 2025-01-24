@@ -16,6 +16,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Last Name</mat-label>
                         <input formControlName="lastname" matInput placeholder="Last Name" type="text" required>
+                        <mat-error *ngIf="submitted && signupControls?.['firstname']?.['errors']?.['required']">last name is required</mat-error>
                     </mat-form-field>
 
                 </div>
@@ -23,20 +24,20 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Username</mat-label>
                     <input formControlName="username" matInput placeholder="Username" type="text" required>
-                    <mat-error *ngIf="submitted && signupControls?.['username']?.['errors']?.['required']">username is required</mat-error>
+                    <mat-error *ngIf="submitted && signupControls?.['username']?.['errors']?.['required']">user name is required</mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
                     <input formControlName="email" matInput placeholder="Email" type="text" required>
-                    <mat-error *ngIf="submitted && signupControls?.['email']?.['errors']?.['required']">email is required</mat-error>
+                    <mat-error *ngIf="submitted && signupControls?.['email']?.['errors']?.['required']">Email is required</mat-error>
                 </mat-form-field>
 
                 <div class="input-group">
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
                         <input formControlName="password" matInput placeholder="Password" type="password" required>
-                        <mat-error *ngIf="submitted && signupControls?.['password']?.['errors']?.['required']">password is required</mat-error>
+                        <mat-error *ngIf="submitted && signupControls?.['password']?.['errors']?.['required']">Password is required</mat-error>
                         <mat-error *ngIf="submitted && signupControls?.['password']?.['errors']?.['minLength']">password is required</mat-error>
                     </mat-form-field>
 
@@ -50,7 +51,7 @@
                 <div class="actions">
                     <!-- <a href="Login.html">Sign in instead</a> -->
                     <a mat-button href="Login.html/" target="_blank">Sign in instead</a>
-                    <button (click)="handleSignUp()">Register</button>
+                    <button type="submit" (click)="handleSignUp()">Register</button>
                 </div>
             </form>
         </div>

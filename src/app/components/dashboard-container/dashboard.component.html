@@ -15,12 +15,7 @@
         <div class="search-bar">
             <input [(ngModel)]='searchQuery' (input)="handleSearchQuery()" type="text" placeholder="Search">
         </div>
-        <!-- <div class="actions">
-            <img src="../../../assets/refresh-icon.png" alt="Logo">
-            <span class="icon">&#128276;</span>
-            <span class="icon">&#128711;</span>
-        </div> -->
-
+      
         <button class="profile" [matMenuTriggerFor]="profile">
            S
             <mat-menu #profile="matMenu">
