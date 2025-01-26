@@ -19,8 +19,8 @@
         <button class="profile" [matMenuTriggerFor]="profile">
            S
             <mat-menu #profile="matMenu">
-                <button mat-menu-item>safi123</button>
-                <button mat-menu-item>safiasad12@gmail.com</button>
+                <button mat-menu-item>{{credentials.userName}}</button>
+                <button mat-menu-item>{{credentials.email}}</button>
                 <button mat-menu-item (click)="handleSignout()">sign out</button>
             </mat-menu>
         </button>

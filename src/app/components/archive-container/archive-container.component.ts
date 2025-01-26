@@ -19,7 +19,7 @@ export class ArchiveContainerComponent {
   
           // for(let note of res.notes){
           //   if(note.isArchive){
-          //     this.archiveNotesList.push(note);
+          //     this.archiveNotesList.unshift(note);
           //   }
           // }
 

@@ -43,6 +43,7 @@ export class LoginComponent {
       next: (res: any) => {
         console.log("api gets called");
         
+        localStorage.setItem("message", res.message);
         localStorage.setItem("authToken", res.token);
         this.router.navigate(["/dashboard/notes"]);
       },

@@ -21,7 +21,9 @@ export class NoteService {
 
   addNoteApiCall(data: any){
 
+
     return this.httpService.postApiCall("http://localhost:5000/api/v1/note/", data, this.getHeader())
+    
   }
 
   fetchNotesApiCall(){

@@ -14,6 +14,14 @@ import { DataService } from 'src/app/services/data-service/data.service';
 export class DashboardComponent {
 
   searchQuery: string = ''
+
+  credentials = {
+
+    email :  '',
+    userName: ''
+
+  }
+  
   
 
 
@@ -25,10 +33,27 @@ export class DashboardComponent {
     iconRegistry.addSvgIconLiteral('edit-icon', sanitizer.bypassSecurityTrustHtml(EDIT_ICON));
     iconRegistry.addSvgIconLiteral('menu-icon', sanitizer.bypassSecurityTrustHtml(MENU_ICON));
 
-
-   
+    console.log(localStorage.getItem('authToken'))
 
   }
+
+  ngOnInit(): void {
+    const token = localStorage.getItem('authToken');
+    if(token){
+      console.log("abcd:   ");
+
+      console.log(this.dataService.getIdFromToken(token));
+      
+      
+      if(this.dataService.getIdFromToken(token)){
+        this.credentials.email = this.dataService.getIdFromToken(token).email;
+        this.credentials.userName = this.dataService.getIdFromToken(token).userName;
+      }
+    }
+  }
+
+
+
 
   handleSignout(){
     localStorage.clear();
@@ -38,6 +63,7 @@ export class DashboardComponent {
   handleSearchQuery(){
     this.dataService.updateSearchQuery(this.searchQuery)
   }
+
 
   handleSidebarIcons($event: string){
     if($event==='note'){
