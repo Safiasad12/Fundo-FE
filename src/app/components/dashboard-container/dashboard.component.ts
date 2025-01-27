@@ -27,11 +27,11 @@ export class DashboardComponent {
 
 
   constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer, private router: Router, private dataService: DataService){
-    iconRegistry.addSvgIconLiteral('note-icon', sanitizer.bypassSecurityTrustHtml(NOTE_ICON));
-    iconRegistry.addSvgIconLiteral('archive-icon', sanitizer.bypassSecurityTrustHtml(ARCHIVE_ICON));
-    iconRegistry.addSvgIconLiteral('trash-icon', sanitizer.bypassSecurityTrustHtml(TRASH_ICON));
-    iconRegistry.addSvgIconLiteral('edit-icon', sanitizer.bypassSecurityTrustHtml(EDIT_ICON));
-    iconRegistry.addSvgIconLiteral('menu-icon', sanitizer.bypassSecurityTrustHtml(MENU_ICON));
+    this.iconRegistry.addSvgIconLiteral('note-icon', this.sanitizer.bypassSecurityTrustHtml(NOTE_ICON));
+    this.iconRegistry.addSvgIconLiteral('archive-icon', this.sanitizer.bypassSecurityTrustHtml(ARCHIVE_ICON));
+    this.iconRegistry.addSvgIconLiteral('trash-icon', this.sanitizer.bypassSecurityTrustHtml(TRASH_ICON));
+    this.iconRegistry.addSvgIconLiteral('edit-icon', this.sanitizer.bypassSecurityTrustHtml(EDIT_ICON));
+    this.iconRegistry.addSvgIconLiteral('menu-icon', this.sanitizer.bypassSecurityTrustHtml(MENU_ICON));
 
     console.log(localStorage.getItem('authToken'))
 

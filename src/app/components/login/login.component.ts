@@ -17,7 +17,9 @@ export class LoginComponent {
 
   submitted: boolean = false
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router:Router ) { }
+  invalidCredentials: boolean = false
+
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router:Router) { }
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
@@ -34,6 +36,7 @@ export class LoginComponent {
 
   handleLogin() {
     this.submitted = true;
+    this.invalidCredentials = false;
     if (this.loginForm.invalid) {
       return;
     }
@@ -48,7 +51,14 @@ export class LoginComponent {
         this.router.navigate(["/dashboard/notes"]);
       },
       error: (err) => {
+
         console.log(err);
+        this.invalidCredentials=true;
+        console.log(this.submitted);
+        
+        console.log(this.invalidCredentials);
+
+        
         
       },
     });

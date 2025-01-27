@@ -10,6 +10,7 @@
           <input formControlName="email" matInput id="email" type="email" placeholder="Email" required aria-label="Email">
           <mat-error *ngIf="submitted && loginControls?.['email']?.errors?.['required']">Email is required</mat-error>
         <mat-error *ngIf="submitted && loginControls?.['email']?.errors?.['email']">Invalid Email address</mat-error>
+        <mat-error *ngIf="submitted && invalidCredentials">Email not exist</mat-error> 
         </mat-form-field>
         
         
